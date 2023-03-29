@@ -1,0 +1,80 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+
+	user-select: none;
+}
+
+main {
+	display: grid;
+	place-items: center;
+
+	margin-inline: auto;
+
+	h1 {
+		margin-block: 1rem;
+		padding: 1rem;
+	}
+
+	.display {
+		padding: 0.5rem;
+
+		background-color: black;
+
+		color: white;
+		text-align: right;
+
+		.storedNumber {
+			font-size: 1.5rem;
+			opacity: 0.9;
+		}
+
+		.currentNumber {
+			position: relative;
+
+			font-weight: bold;
+			font-size: 2rem;
+
+			span {
+				margin-right: 0.5rem;
+			}
+		}
+	}
+
+	.buttons {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 0.2rem;
+		margin-block: 1rem;
+
+		button {
+			padding: 1rem;
+			border: 2px solid darkblue;
+
+			background-color: lightblue;
+
+			font-size: 2rem;
+			font-weight: bold;
+
+			&:hover,
+			&:focus-visible {
+				opacity: 0.8;
+			}
+
+			&:active {
+				opacity: 0.7;
+			}
+		}
+
+		.position-plus {
+			grid-row: 3 / 5;
+			grid-column: 4 / 5;
+		}
+
+		.position-enter {
+			grid-row: 5 / 6;
+			grid-column: 3 / 5;
+		}
+	}
+}
