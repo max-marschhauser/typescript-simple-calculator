@@ -68,8 +68,185 @@ export default function App() {
 		}
 	}
 
+	function keyPressed(event: React.KeyboardEvent<HTMLElement>): void {
+		const key = event.key;
+
+		console.log(key);
+		switch (key) {
+			case "+": {
+				if (currentOperation !== "") {
+					setCurrentOperation("+");
+					return;
+				}
+
+				setStoredNumber(currentNumber);
+				setCurrentNumber(0);
+				setCurrentOperation("+");
+
+				break;
+			}
+			case "-": {
+				if (currentOperation !== "") {
+					setCurrentOperation("-");
+					return;
+				}
+
+				setStoredNumber(currentNumber);
+				setCurrentNumber(0);
+				setCurrentOperation("-");
+
+				break;
+			}
+			case "*": {
+				if (currentOperation !== "") {
+					setCurrentOperation("×");
+					return;
+				}
+
+				setStoredNumber(currentNumber);
+				setCurrentNumber(0);
+				setCurrentOperation("×");
+
+				break;
+			}
+			case "/": {
+				if (currentOperation !== "") {
+					setCurrentOperation("÷");
+					return;
+				}
+
+				setStoredNumber(currentNumber);
+				setCurrentNumber(0);
+				setCurrentOperation("÷");
+
+				break;
+			}
+			case "Backspace": {
+				setCurrentNumber(0);
+				setCurrentOperation("");
+				break;
+			}
+			case "Delete": {
+				setStoredNumber(0);
+				setCurrentNumber(0);
+				setCurrentOperation("");
+				break;
+			}
+			case "1": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "1";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "2": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "2";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "3": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "3";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "4": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "4";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "5": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "5";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "6": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "6";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "7": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "7";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "8": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "8";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "9": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "9";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+			case "0": {
+				if (currentNumber <= 999999999999) {
+					const newNumber: string = "0";
+					const oldNumber: string = currentNumber.toString();
+					const result: number = parseInt(oldNumber + newNumber);
+
+					setCurrentNumber(result);
+
+					break;
+				}
+			}
+		}
+	}
+
 	return (
-		<main>
+		<main onKeyDown={keyPressed}>
 			<h1>Typescript Simple Calculator</h1>
 			<div>
 				<section className="display">
@@ -121,12 +298,12 @@ export default function App() {
 					<button className="position-plus" onClick={operationButtonHandler} value="+">
 						+
 					</button>
-					<button onClick={numberButtonHandler} value="0">
+					<button className="position-zero" onClick={numberButtonHandler} value="0">
 						0
 					</button>
-					<button>.</button>
-					<button className="position-enter" onClick={enterButtonHandler}>
-						Enter
+
+					<button autoFocus className="position-equals" onClick={enterButtonHandler}>
+						=
 					</button>
 				</section>
 			</div>
